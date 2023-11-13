@@ -112,6 +112,7 @@ var executarCodigo = function () {
                     _a.sent();
                     _a.label = 2;
                 case 2:
+                    console.log(erros);
                     mapearErros(analisadorSemantico.erros);
                     return [2 /*return*/];
             }
