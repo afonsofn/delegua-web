@@ -106,14 +106,11 @@ var executarCodigo = function () {
                     retornoAvaliadorSintatico = delegua.avaliadorSintatico.analisar(retornoLexador);
                     analisadorSemantico = delegua.analisadorSemantico.analisar(retornoAvaliadorSintatico.declaracoes);
                     erros = analisadorSemantico.erros;
-                    if (!(!erros || !erros.length)) return [3 /*break*/, 2];
+                    if (!!(erros === null || erros === void 0 ? void 0 : erros.length)) return [3 /*break*/, 2];
                     return [4 /*yield*/, delegua.executar({ retornoLexador: retornoLexador, retornoAvaliadorSintatico: retornoAvaliadorSintatico })];
-                case 1:
-                    _a.sent();
-                    _a.label = 2;
+                case 1: return [2 /*return*/, _a.sent()];
                 case 2:
-                    console.log(erros);
-                    mapearErros(analisadorSemantico.erros);
+                    mapearErros(erros);
                     return [2 /*return*/];
             }
         });
